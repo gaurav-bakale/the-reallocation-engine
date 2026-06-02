@@ -30,7 +30,9 @@
 
 ## Chapters
 
-1. **[Chapter 1 title]** — [one-line description of the argument or move]
+1. **The Fluency Trap** — *drafted 2026-06-02* (`chapters/2026-06-02-the-fluency-trap.md`). Thesis chapter: the first sign of trouble is fluency, not failure; the execution/judgment boundary; comprehension debt and AI drag; why it lands hardest on the F-1/OPT reader against the 90-day clock.
+
+   *(Full 14-chapter plan lives in `TIKTOC.md`; source audit in `CHAPTER-RESEARCH-MAP.md`. This template TOC is superseded by those.)*
 
 ## Back Matter
 
