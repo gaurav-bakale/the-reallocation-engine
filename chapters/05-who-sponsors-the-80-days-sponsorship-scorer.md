@@ -1,125 +1,157 @@
 # Chapter 5 — Who Sponsors: The 80 Days Sponsorship Scorer
+*Why the record always outranks the reputation.*
 
-<!-- voice-anchored: root style/VOICE.md. Anatomy: TIKTOC Part 10.
-     Sourced from SDD Component 2, plain-summary, 80-days day logs, CHAPTER-RESEARCH-MAP.
-     Note: tier-set discrepancy (Proven/Likely/Unknown/Avoid vs Proven/Likely/Unknown) flagged. Draft. Never published. -->
+Here is something that bothers me every time I see a job seeker's target list: the names on it are chosen for how they feel, not for what they've done. A household brand — a logo you've worn on a t-shirt — sits at the top. Fifteen companies you've never heard of sit nowhere, because you've never heard of them. And that ranking is exactly backwards, in a way that is measurable, sourced, and correctable.
 
-**What you'll be able to do:** Assign any company a sponsorship tier — Proven, Likely, Unknown, or Avoid — built from three public government datasets, and defend the tier with the evidence that produced it.
+A Cambridge biotech with no consumer presence files fifteen Labor Condition Applications over three years and maintains an 85% H-1B approval rate. The household brand files essentially zero LCAs for roles like yours. For a candidate who needs sponsorship, the unknown biotech is a vastly better target — not by opinion, not by vibe, but by the public record. The whole problem is that prestige is loud and the visa record is quiet. This chapter makes the quiet record louder.
 
-## Learning outcomes
+<!-- → [CHART: horizontal bar chart showing a hypothetical pair of companies — "Famous Brand" vs. "Unknown Biotech" — with bars for LCA count, approval rate, funding recency, and composite score; the visual should make the ranking flip visceral and immediate] -->
 
-- **(Evaluate)** Assign and defend a sponsorship tier from LCA, H-1B, and funding evidence.
-- **(Analyze)** Explain why a famous non-sponsor scores below an unknown small lab with a filing history.
+What I want you to notice before we go further: this is not about dismissing well-known companies. Some famous companies are prolific sponsors. Some unknown biotechs file nothing. The point is that you do not know which is which from the name alone — you only know from the record. Everything in this chapter is about reading the record correctly.
 
-## Opening case — the backwards ranking
+---
 
-Put two companies side by side. The first is a household name — a logo you have worn on a t-shirt — with, in the visa record, a sponsorship history of essentially zero: it does not file for foreign workers in roles like yours. The second is a Cambridge biotech you have never heard of, with fifteen Labor Condition Applications filed over three years and an 85% H-1B approval rate.
+The record lives in three datasets, all public, all free.
 
-Ask any job seeker which to prioritize and most will say the famous one. Ask the records, and the ranking flips. For a candidate who needs sponsorship, the unknown biotech is a *vastly* better target than the brand name, and the only reason that feels wrong is that prestige is loud and the visa record is quiet. The scorer's whole job is to make the quiet record louder than the prestige.
+The first is **SEC Form D**, which you met in Chapter 4. It tells you when a company raised money and how much. Funding recency matters because a company that raised $12 million eight weeks ago is a different entity than one whose last round was three years ago and whose runway is unclear.
 
-## What you need first
+The second is the **DOL LCA disclosure data** — every Labor Condition Application an employer files with the Department of Labor as a precondition for hiring a foreign worker. An LCA is not the visa itself; it is the step before. It says: this employer is willing, organized, and legally set up to go through the process. A company with a filing history has built the machinery. A company with no filings either has not built it or has decided not to use it for roles like yours. Both conclusions matter.
 
-From Chapter 4, a shortlist of funded companies. From Chapter 3, the contract: tiers come from records, never from a model's sense of whether a company "seems like a sponsor." You'll also need the company names resolved well enough to match against government data — the same entity-resolution problem from Chapter 4, now load-bearing.
+The third is the **USCIS H-1B Employer Data Hub** — actual approvals and denials by employer and year. This is not intent; it is outcome. An employer can file LCAs and still fail at the H-1B stage. The approval rate tells you how the filings resolve.
 
-## The datasets and subsystem this chapter rests on
+<!-- → [DIAGRAM: three-node pipeline showing SEC Form D → DOL LCA Data → USCIS H-1B Hub flowing into a "Sponsorship Scorer" node, with arrows labeled "funding recency," "filing behavior," and "approval rate"; include a fourth node for "company-size signals" feeding in from below] -->
 
-Three public datasets, joined:
+These three datasets are joined by the **80 Days pipeline** on resolved company names. That last phrase — resolved company names — is doing more work than it appears to. "Google LLC," "Google Inc.," and "Alphabet" must be recognized as one entity or a real sponsor looks like a stranger in the data. The join is the hard part. An "Unknown" tier caused by a failed name match is not the same as a true absence of filings, and I will return to that distinction because it is one of the two most important things in this chapter.
 
-- **SEC Form D** (Chapter 4) — funding recency.
-- **DOL LCA disclosure data** — every Labor Condition Application an employer files to hire a foreign worker. An LCA is the step *before* an H-1B petition: it signals the employer is willing and set up to sponsor.
-- **USCIS H-1B Employer Data Hub** — actual approvals and denials by employer and year, which yields an approval rate.
+---
 
-The subsystem is the **80 Days pipeline**, which joins these on resolved company names. The join is the hard part — "Google LLC," "Google Inc," and "Alphabet" must be recognized as one entity, or a real sponsor looks like a stranger.
-
-## Core content — the four tiers and the scoring weights
-
-The scorer reduces three datasets to one signal: the probability a company will sponsor. The composite is a weighted sum, and the weights are the heart of the chapter:
+The scorer reduces those three datasets into a single number:
 
 > **P(sponsorship) = LCA filing rate (3-yr) × 0.40 + H-1B approval rate × 0.30 + funding recency × 0.20 + company-size signals × 0.10**
 
-Read those weights as a claim about evidence. The **LCA filing rate** carries the most weight (40%) because *filing* is the most direct revealed action: a company that files LCAs is a company that has built the legal machinery to sponsor and chooses to use it. The **H-1B approval rate** (30%) says those filings actually succeed. **Funding recency** (20%) says they have the money to keep doing it. **Company-size signals** (10%) capture that a fourteen-person lab and a ten-thousand-person firm behave differently. Each input is a number from a record, not a vibe.
+Read those weights as a claim, and ask whether you agree with it.
 
-The probability then maps to a **tier**:
+The LCA filing rate carries 40% of the weight because filing is the most direct revealed action available in public data. A company that files LCAs has made a decision — to build the legal infrastructure, engage immigration counsel, pay the fees, and go through the process. That decision is load-bearing in a way that a company's reputation is not. You can be famous without ever filing an LCA. You can be unknown and file thirty.
 
-- **Proven** — strong, recent filing history and high approval. State authorization directly later (Chapter 10).
-- **Likely** — some evidence: a few filings, or strong funding plus partial history.
-- **Unknown** — no evidence either way. Not "won't sponsor" — *we have no record.*
-- **Avoid** — evidence the company does **not** sponsor in your kind of role (e.g., a clear zero-history non-sponsor), so the engine spends no time there.
+The H-1B approval rate carries 30% because filings that don't succeed tell a different story than filings that do. An employer with a 40% approval rate and an employer with an 85% approval rate are both sponsors in name. In practice, they are different bets.
 
-> **`[contested — see TIKTOC Risk 8 / CHAPTER-RESEARCH-MAP]`** The system design document describes three tiers (Proven / Likely / Unknown); the plain-language summary adds **Avoid**. This chapter uses the four-tier version because "Avoid" does real work — it lets the engine actively deprioritize known non-sponsors rather than merely lacking data on them. **Reconcile the tier set across the SDD and summary before publication.** The exact probability thresholds for each tier must also be pinned from the SDD (e.g., Proven ≥ 0.65, Likely ≥ 0.35, Unknown < 0.35) and stated here once confirmed. `[verify]`
+<!-- → [TABLE: side-by-side comparison of two hypothetical employers — one with high filing rate and low approval rate vs. one with moderate filing rate and high approval rate — showing how the composite score differs and what each profile implies about the employer's process] -->
 
-## A runnable command
+Funding recency carries 20% because the question is not just whether a company has sponsored in the past but whether it has the resources and growth trajectory to do so now. A company that raised eight weeks ago is in a different hiring mode than one that is managing a quiet contraction.
 
-The sponsorship data is built and audited before any company is tiered. From the project root, the join is validated against the H-1B records with:
+Company-size signals carry 10% — not because size is unimportant, but because its effect is already partially captured by the other three. A fourteen-person lab and a ten-thousand-person firm behave differently on average, but the record is the record. A small lab with a strong filing history is better evidence than a large firm with none.
+
+The composite probability then maps to a tier. **Proven** means strong, recent filing history and high approval — the evidence is unambiguous. **Likely** means some evidence: a few filings, or strong funding plus partial history. **Unknown** means no evidence either way. **Avoid** means evidence the company does *not* sponsor in your kind of role — a clear zero-history non-sponsor that the engine should actively skip rather than merely lack data on.
+
+I should flag something here. The system design document underlying the 80 Days pipeline describes three tiers — Proven, Likely, Unknown. The plain-language summary of the same system adds Avoid as a fourth. This chapter uses four tiers because "Avoid" does real work: it lets the engine actively deprioritize known non-sponsors rather than merely lacking data on them. The tier set and exact probability thresholds for each boundary need to be reconciled against the SDD before this goes to print. I am being transparent about that because the tier labels and thresholds are the output a reader will act on, and the distinction between a system that has three modes and one that has four is not cosmetic.
+
+<!-- → [INFOGRAPHIC: a horizontal spectrum from "Avoid" through "Unknown" through "Likely" to "Proven," with approximate probability ranges on the axis and brief action cues below each tier — what the engine does and what you do] -->
+
+---
+
+Now let me show you what this looks like on a real case — or rather, a case that is real in structure, with illustrative numbers, so you can see how the reasoning works before you run it on your own list.
+
+Return to the Cambridge biotech. LCA filings: 15 over three years. That is a strong filing rate for a company of this size — they are not dabbling in sponsorship, they have built the process. H-1B approval rate: 85%. Funding: $12 million raised eight weeks ago, which puts the recency score near maximum. Size: roughly 40 employees, which is mid-small.
+
+Running the weights: the LCA rate (×0.40) dominates because it is high and the weight is highest. The approval rate (×0.30) confirms the filings are not just optimistic paperwork. The funding recency (×0.20) says they have the resources to keep going. Size (×0.10) is neutral-to-positive — a 40-person lab is not so large that bureaucracy slows everything down and not so small that one departure breaks the immigration infrastructure. The composite lands well into Proven.
+
+Now run the same logic on the household name. LCA rate: approximately zero for roles like yours. That ×0.40 term contributes nothing. No relevant H-1B approvals in your role category. The funding and size numbers are strong — they have the money, they have the infrastructure — but those terms together carry only 30% of the weight, and they cannot rescue a zero on the 70% that measures actual sponsorship behavior. The company lands in Avoid.
+
+<!-- → [CHART: two stacked bar charts side-by-side showing the weighted score breakdown for each company — each bar segment labeled with its component and weight, making visible how the "Avoid" company's 70% goes to zero while the Proven company builds from all four components] -->
+
+The decision is not close. The unknown biotech goes to the top of the active application list. The household name gets skipped. That is the backwards ranking, now defended by four sourced numbers.
+
+But I want to be careful here. The record is a rear-view mirror. A company that sponsored heavily for three years may have frozen sponsorship last month. The immigration attorney who drove those 85% approvals may have left in March and taken the process knowledge with them. The LCA data is published on a lag. A company that raises a new round and starts hiring aggressively may look Unknown today and Proven in six months — and the record will not tell you that yet.
+
+This is not a reason to distrust the tier. It is a reason to hold the tier correctly: as a well-evidenced prior, not a guarantee. You are Bayesian here. The tier tells you where the evidence points. The conversation you have with the recruiter is where you update.
+
+---
+
+The most common misread of this system is treating Unknown as Avoid. I want to spend a moment on this because it is not a subtle error — it is the error that throws away exactly the companies Chapter 4 worked to surface.
+
+*Avoid* means the record shows this company does not sponsor your kind of role. The evidence is there; it is just negative. *Unknown* means the record is silent. Silent is different from negative. A company is Unknown for one of two reasons: either there is genuinely no filing history (they have never sponsored, or they are so young that the data does not exist yet), or the name did not match when the pipeline joined the datasets.
+
+Those two causes of Unknown require opposite responses. A true absence of filings on a three-year-old company with strong funding is a prompt to look for direct sponsorship signals — a careers page that says "visa sponsorship available," a LinkedIn post about a recent hire on an H-1B, a direct question to the recruiter. A failed name match is a data problem you fix by resolving the entity and re-running. You cannot tell which you are dealing with by looking at the tier alone. You tell by reading the join-coverage audit.
+
+<!-- → [TABLE: two-column table distinguishing "True Unknown" from "Name-Match Artifact Unknown" — rows for: how to identify it, what the record shows, what action it requires, and what the risk of treating it as Avoid would cost you] -->
+
+The pipeline exposes this. From the project root:
 
 ```bash
 cd SCRIPTS/sec
-python validate_h1b_join_sample.py     # checks the company-name join against USCIS H-1B data
+python validate_h1b_join_sample.py
 ```
 
-and the broader data integrity is checked with:
+checks the company-name join against USCIS H-1B data, and:
 
 ```bash
-python SCRIPTS/audit_sec_dol_h1b_data.py   # audits the SEC + DOL + H-1B join coverage
+python SCRIPTS/audit_sec_dol_h1b_data.py
 ```
 
-The inspectable output is the join-coverage audit: how many companies matched, how many failed to match, and therefore how much of your shortlist the tier actually covers. You read that coverage number *before* trusting any tier — an "Unknown" caused by a failed name match is not the same as a true absence of filings.
+audits the full SEC + DOL + H-1B join coverage. The output is a number: how many companies on your shortlist matched, how many failed to match, and therefore how much of your list the tier actually covers. You read that coverage number before trusting any Unknown. If 30% of your shortlist failed to match, a significant fraction of your Unknowns are artifacts, not verdicts.
 
-## Worked example — one company from records to a defended tier
+---
 
-**Situation.** The Cambridge biotech from the opening.
+Let me say what I actually cannot see from this data, because intellectual honesty requires it.
 
-**The data, inspected.** LCA filings: 15 over three years → a strong filing rate. H-1B approval rate: 85%. Funding: $12M raised eight weeks ago → high recency. Size: ~40 employees → mid-small.
+The pipeline knows a company filed fifteen LCAs. It cannot know those fifteen were all for senior principal scientists and the company has a quiet policy against sponsoring entry-level hires. It knows an 85% approval rate; it cannot know that the attorney who drove those approvals left in March. It cannot know that an Avoid company just hired a new VP of Engineering who is changing the sponsorship policy this quarter. It cannot know that a Proven company just went through a round of layoffs and has frozen all new sponsorship for six months.
 
-**The weighted read.** High LCA rate (×0.40) dominates; strong approval (×0.30) confirms; fresh funding (×0.20) supports; size (×0.10) is neutral-to-positive. The composite lands well into **Proven**.
+The tier is what the public record supports. What the public record cannot support is inference about a specific role, a specific month, a specific team. That is not a flaw in the scorer — it is the honest boundary of what any retrospective dataset can tell you. The boundary matters because crossing it silently is how you make bad decisions with confident numbers.
 
-**The contrast.** The household name: LCA rate ≈ 0 (×0.40 contributes nothing), no relevant approvals, ample funding and size that cannot rescue a zero filing history. It lands in **Avoid** for your role type.
+What the record can tell you, reliably, is: has this company demonstrated that it is willing and able to sponsor? That is the question the tier answers. Whether this company will sponsor you, in this role, right now — that is the question the tier informs but cannot answer.
 
-**The decision.** The unknown biotech is prioritized over the brand name — exactly the backwards ranking, now defended by four sourced numbers.
+<!-- → [DIAGRAM: a decision tree beginning at "Tier assigned" — branching from Proven/Likely to "Target actively" and then to "Verify role type matches filing history," from Unknown to "Check coverage / resolve name match" and "Look for direct signals," and from Avoid to "Skip — reallocate application time (see Chapter 2)"] -->
 
-**The lesson (one sentence):** Sponsorship is a revealed behavior in public records, not a property of fame — and the record routinely ranks the unknown above the famous.
+The last thing I want to leave you with is the decision rule, because knowing the tier is only useful if you know what to do with it.
 
-**The limit (where this fails):** The record is a rear-view mirror. A company that sponsored heavily for three years may have frozen sponsorship last month; a true sponsor may be missing because its name didn't match. The tier is a well-evidenced prior, not a guarantee, and "Unknown" is often a data-coverage artifact you must investigate before trusting.
+Proven and Likely justify the targeted two hours of application effort from Chapter 2. These are companies where the evidence supports the investment. Unknown — if fit and funding are strong — stays on the list, but gets a different kind of attention: resolve the name match, find the direct signal, and only then decide. Avoid gets skipped. This is precisely the class of target the engine exists to let you skip. The hours you save on non-sponsors are the hours that fund the depth you put into Proven targets.
 
-## Mid-chapter checkpoint
+The puzzle the record cannot solve is one level up: a company that will sponsor is worthless to you if the posting they listed is a ghost. So before you spend the targeted application time a Proven tier earns — is the role even real?
 
-The most common misread: treating **Unknown** as **Avoid**. They are opposites in evidence. *Avoid* means "the record shows they don't sponsor your kind of role." *Unknown* means "the record is silent — possibly because we couldn't match the name, possibly because they're young." Throwing away every Unknown discards exactly the small, recently funded firms Chapter 4 worked to surface. Unknown is a prompt to look closer, not a verdict.
-
-## Decision rule — acting on a tier
-
-- **Proven / Likely:** target actively; these justify the targeted "2 hours" of applying from Chapter 2.
-- **Unknown:** keep if fit and funding are strong; resolve the name match and look for direct sponsorship signals (a careers page that says "visa sponsorship available") before deciding.
-- **Avoid:** do not spend application time; this is precisely the kind of role the engine exists to let you *skip* (Chapter 2's freed hours).
-
-## What the machine could not know
-
-The pipeline knows a company filed fifteen LCAs. It cannot know those fifteen were all for senior principal scientists and the company has a hard rule against sponsoring entry-level hires. It knows an 85% approval rate; it cannot know the immigration attorney who drove those approvals left in March. It cannot know that an "Avoid" company just hired a new VP who is changing the policy this quarter. The tier tells you where the evidence points. Whether *this role, this month* matches the evidence is a question you carry into the conversation.
+---
 
 ## Exercises
 
-1. **(Evaluate) Tier ten companies.** Take ten targets from your Chapter 4 shortlist, run the join, and assign each a tier with the evidence (LCA count, approval rate, funding, size) written next to it. Note the coverage from the audit.
-2. **(Analyze) The invisible Proven.** Find one Proven-tier company you had never heard of and write one sentence on what made it invisible — no consumer brand, no billboard, just a filing history.
-3. **(Analyze) Diagnose an Unknown.** Pick one Unknown and determine whether it's a true absence of filings or a failed name match. Show how you'd tell the difference.
+**Warm-up**
 
-## AI use / verified-data disclosure
+1. *(Recall — single-concept)* The composite scoring formula weights four inputs. Without looking, name them and their weights. Then write a one-sentence explanation for why the LCA filing rate carries more weight than company-size signals.
+   *Tests: understanding of weight rationale, not just memorization of numbers.*
+   *Difficulty: Low*
 
-Tiers come from SEC Form D, DOL LCA, and USCIS H-1B records joined by the 80 Days pipeline. The scoring weights (0.40 / 0.30 / 0.20 / 0.10) are from the system design document; the four-tier set and exact thresholds are flagged `[contested]`/`[verify]` pending reconciliation between the SDD and the plain-summary. The 85% approval and 15-filing figures in the worked example are illustrative of the case structure, not a claim about a specific named firm.
+2. *(Distinguish — single-concept)* A company appears as Unknown in your tier output. Describe two distinct reasons this could happen, and for each, state what action the correct interpretation requires.
+   *Tests: the Unknown ≠ Avoid distinction and its practical consequences.*
+   *Difficulty: Low*
 
-## Chapter summary — capabilities gained
+3. *(Apply — single-concept)* You run the join-coverage audit and find that 40% of your shortlist failed to match. What does this tell you about the reliability of the Unknown tiers in that 40%? What is the first step?
+   *Tests: reading coverage output before trusting tier assignments.*
+   *Difficulty: Low*
 
-You can join three public datasets into a sponsorship probability, assign one of four tiers, and defend the tier — including explaining why an unknown lab outranks a famous logo. You can tell a true Unknown from a name-match artifact. What you still cannot tell: whether the role this company posted is even real.
+**Application**
 
-## Key terms
+4. *(Compute — multi-input)* A company has the following inputs: LCA filing rate (3-yr) = 0.7, H-1B approval rate = 0.6, funding recency score = 0.9, company-size signal = 0.5. Compute the composite P(sponsorship) using the chapter's formula. Which tier would this place the company in, assuming standard thresholds?
+   *Tests: mechanical application of the weighted formula.*
+   *Difficulty: Medium*
 
-- **LCA (Labor Condition Application):** the DOL filing an employer makes to hire a foreign worker; the most direct public signal of willingness to sponsor; weighted 40%.
-- **H-1B approval rate:** the share of an employer's H-1B petitions approved (USCIS Data Hub); weighted 30%.
-- **Sponsorship tier:** Proven / Likely / Unknown / Avoid — the scorer's reduction of the evidence into an action.
-- **Coverage:** the fraction of your shortlist the join actually matched; read it before trusting any "Unknown."
+5. *(Compare — multi-input)* Company A has a strong 3-year LCA history but a 45% approval rate. Company B has only 3 LCAs over three years but a 92% approval rate and recent Series B funding. Compute approximate scores for both. Which is the better target and why — and what does the comparison reveal about what the weights are actually measuring?
+   *Tests: trade-off reasoning across inputs, not just formula execution.*
+   *Difficulty: Medium*
 
-## Bridge question
+6. *(Audit — procedure)* You assign a famous company an Avoid tier. A friend argues this is wrong because "everyone knows they hire internationally." Write the argument you make to defend the Avoid assignment, and name what single piece of new evidence would change the tier.
+   *Tests: defending tier from evidence rather than reputation; updating on evidence.*
+   *Difficulty: Medium*
 
-A company that will sponsor is worthless to you if the posting is a ghost. So before you spend the targeted application time a Proven tier earns — is the role even real?
+**Synthesis**
 
-## Run-log prompt
+7. *(Integrate — cross-chapter)* A company from your Chapter 4 shortlist scores Proven on sponsorship but has a funding event that is 26 months old. The LCA history is strong. How do you weight the stale funding against the filing history? What decision does the composite support, and what additional check does the stale funding prompt?
+   *Tests: combining Chapter 4 funding logic with Chapter 5 scoring; not treating inputs as independent verdicts.*
+   *Difficulty: High*
 
-Record the join coverage from the audit, the tier you assigned each target with its four sourced inputs, and any Unknown you reclassified after resolving a name match.
+8. *(Diagnose — system behavior)* The 80 Days pipeline assigns Unknown to a company you know personally sponsors aggressively — you have a contact there who is on an H-1B. Walk through the two most likely explanations for the discrepancy, and describe the steps you would take to either correct the tier or confirm it as a pipeline limitation.
+   *Tests: understanding name-match artifacts vs. true data absence; debugging system output against ground truth.*
+   *Difficulty: High*
+
+**Challenge**
+
+9. *(Design — open-ended)* The current formula weights LCA filing rate at 0.40 and company-size signals at 0.10. Suppose you are building a version of this scorer specifically for targeting very early-stage startups (Series A and earlier). Make the case for at least one weight adjustment that would improve tier accuracy for this population, and explain what the adjustment reveals about what the original weights were implicitly assuming.
+   *Tests: understanding the assumptions baked into the scoring model; applying the model's logic to a constrained subpopulation.*
+   *Difficulty: High/Open-ended*
