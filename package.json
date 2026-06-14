@@ -4,6 +4,10 @@
   "type": "module",
   "description": "The Reallocation Engine",
   "scripts": {
+    "verify": "node scripts/conformance.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "build-instructions": "node scripts/build-instructions.mjs",
+    "to-markdown": "node scripts/to-markdown.mjs",
     "ats:dedup": "node scripts/ats/dedup-tracker.mjs",
     "ats:liveness": "node scripts/ats/check-liveness.mjs",
     "ats:merge": "node scripts/ats/merge-tracker.mjs",

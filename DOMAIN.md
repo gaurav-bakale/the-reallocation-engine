@@ -45,15 +45,16 @@ python3 scripts/ats/analyze-patterns.py               # KNOWN BUG: see below
 
 Core recipes (the operating surface): `_shared.md`, `scan.md`, `pipeline.md`, `oferta.md`, `tracker.md`, `pdf.md`, `patterns.md`, `update.md`. All are currently **DRAFT** — open typed TODOs, references to the unbuilt generic layout. The remaining recipe files (person-named case studies and monitor concepts) are drafts pending TODO closure and, for person-named files, privacy review before anything ships.
 
-## Known gaps and defects (honest list, 2026-06-11)
+## Known gaps and defects (honest list, updated 2026-06-13)
 
-1. `scripts/bls/extract-soc-occupation-table.py` reads `Recipes.txt`; the O*NET file is `Skills.txt` (rename shrapnel). Fails on fresh run.
-2. `scripts/ats/analyze-patterns.py` and `scripts/ats/README.md` reference `modes/RUN_LOG.md`; correct path is `logs/RUN_LOG.md`.
-3. The composite role scorer (book ch. 11) has no implementation — evidence feeds exist, the combiner does not.
-4. No recipe has ever completed a logged run; the honest run is outstanding.
-5. `npm run doctor` (environment + recipe-status checker) is planned, not built.
-6. Person-named recipes embed student names/IDs and cite empty `pantry/` paths — privacy review required.
-7. Book manuscript says "skill"; repository says "recipe" — terminology reconciliation pending.
+1. ~~BLS extract reads `Recipes.txt`…~~ **RESOLVED** — reads `Skills.txt` (verified 2026-06-13).
+2. ~~`analyze-patterns` / README reference `modes/RUN_LOG.md`…~~ **RESOLVED** — both use `logs/RUN_LOG.md` (verified 2026-06-13).
+3. The composite role scorer (book ch. 11) has no implementation — evidence feeds exist, the combiner does not. **(open)**
+4. No recipe has ever completed a logged run; the honest run is outstanding. **(open)**
+5. ~~`npm run doctor` is planned, not built.~~ **RESOLVED (2026-06-13)** — `scripts/doctor.mjs`: checks tools, npm command-target existence, domain dirs, and a recipe-status dashboard (frontmatter coverage, status counts, declared-vs-body TODO mismatch). `--strict` exits 1 on a missing tool/target.
+6. ~~Person-named recipes embed student names/IDs…~~ **RESOLVED (2026-06-13)** — 14 case studies anonymized to `case-*.md`; names + Canvas submission-IDs scrubbed in working tree **and** purged from git history (`git filter-repo`). Re-attach anonymized sources before they ship.
+7. Book manuscript says "skill"; repository says "recipe" — terminology reconciliation pending. **(open)**
+8. **New (doctor surfaced):** only 7 of 42 recipes carry lifecycle frontmatter; declared `todos_open` (77) badly undercounts the 518 `[TODO` markers in bodies. Backfill frontmatter + reconcile counts. **(open)**
 
 ## Privacy
 
