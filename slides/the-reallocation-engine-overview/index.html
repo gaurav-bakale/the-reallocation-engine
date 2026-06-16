@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--
+  Brutalist Slides — deck runtime/template.
+  Fill <main id="deck">
+  <section class="slide" data-type="ref">
+    <div class="eyebrow">Humanitarians AI · a walkthrough</div>
+    <h1 class="headline">The Reallocation Engine</h1>
+    <div class="body"><div style="text-align:center;font-family:var(--serif);font-size:clamp(16px,2.4cqi,28px);color:var(--color-secondary);max-width:36ch">Verified Data, Phase Gates, and CLI Pipelines for the F-1 OPT Search</div></div>
+    <div class="caption">Nik Bear Brown and Humanitarians AI · Published by Humanitarians AI</div>
+    <aside class="notes">A book and a working machine at once. This deck walks the argument and the sixteen-chapter method end to end. Figures are live D3 — hover them.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <h1 class="headline">AI made execution cheap. Judgment is now the scarce resource.</h1>
+    <div class="body"><div id="claim-fig" style="width:100%;height:100%"></div></div>
+    <div class="caption">The engine reallocates effort toward the judgment only you can supply.</div>
+    <aside class="notes">One general claim aimed at one concrete problem: a student on an F-1 clock cannot spend judgment evenly. The machine grounds what records can ground; you decide whether a role is worth a day of your life.</aside>
+  </section>
+  <section class="slide" data-type="ref">
+    <h1 class="headline">Three movements, one decision.</h1>
+    <div class="body"><div id="map-fig" style="width:100%;height:100%"></div></div>
+    <div class="caption">Fluency → verified evidence → a sourced Apply / Consider / Skip.</div>
+    <aside class="notes">Chapters 1–5 install the judgment frame; 6–13 build each evidence component; 14–16 operate the engine and make one honest run. Chapter 97 gathers the themes.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The core method · Chapter 1</div>
+    <h1 class="headline">Fluency is not correctness — and the check is yours.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/01-the-fluency-trap-fig-02.html" title="The variable is checking, not typing." loading="lazy"></iframe></div>
+    <div class="caption">The variable is checking, not typing.</div>
+    <aside class="notes">Open on the trap: a clean AI output looks like success. The Anthropic RCT shows interrogation matches hand-coding; delegation collapses. The whole book defends the check.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The core method · Chapter 2</div>
+    <h1 class="headline">Spend scarce judgment where it changes the decision.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/02-the-reallocation-principle-fig-01.html" title="Reallocate effort from cheap execution to scarce judgment." loading="lazy"></iframe></div>
+    <div class="caption">Reallocate effort from cheap execution to scarce judgment.</div>
+    <aside class="notes">Execution is nearly free now. The engine moves limited attention away from polished cold applications toward the few roles a record says can matter.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The core method · Chapter 3</div>
+    <h1 class="headline">Every number traces to a record, or it's labeled a guess.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/03-the-verified-data-contract-fig-01.html" title="The verified-data contract: provenance over polish." loading="lazy"></iframe></div>
+    <div class="caption">The verified-data contract: provenance over polish.</div>
+    <aside class="notes">Run the script and read the audit before you prompt. A figure with no record behind it is decoration — and the contract forces it to be labeled as such.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The core method · Chapter 4</div>
+    <h1 class="headline">Write each recipe twice: complete for the agent, summary for you.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/04-two-customers-fig-01.html" title="Two customers, one shared contract." loading="lazy"></iframe></div>
+    <div class="caption">Two customers, one shared contract.</div>
+    <aside class="notes">The agent needs a complete, explicit recipe; the human needs a summary-first card. One source, two artifacts, both honoring the contract.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The core method · Chapter 5</div>
+    <h1 class="headline">Real data isn't enough — ask if it measures the right thing.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/05-verifying-the-data-fig-01.html" title="The three-tier trust stack: build upward to trustworthy inference." loading="lazy"></iframe></div>
+    <div class="caption">The three-tier trust stack: build upward to trustworthy inference.</div>
+    <aside class="notes">Numbers tracing to records is the floor. Above it sits the working question — are the right things being measured? — where coverage gaps and base-rate mismatch live.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The evidence components · Chapter 6</div>
+    <h1 class="headline">Follow the funding: recent raises beat big names.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/06-where-the-money-went-sec-form-d-fig-01.html" title="SEC Form D surfaces who just raised money." loading="lazy"></iframe></div>
+    <div class="caption">SEC Form D surfaces who just raised money.</div>
+    <aside class="notes">Companies that recently closed funding are hiring. Form D is the public record; the recipe ranks leads by recency and size.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The evidence components · Chapter 7</div>
+    <h1 class="headline">Score who actually sponsors, not who's famous.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/07-who-sponsors-the-80-days-sponsorship-scorer-fig-01.html" title="Sponsorship history, not brand recognition." loading="lazy"></iframe></div>
+    <div class="caption">Sponsorship history, not brand recognition.</div>
+    <aside class="notes">A famous employer is not a sponsoring employer. The scorer reads real sponsorship history and separates a true record from a name-match artifact.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The evidence components · Chapter 8</div>
+    <h1 class="headline">A posting isn't a job until it's proven live.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/08-is-the-job-real-ats-detection-and-liveness-fig-01.html" title="ATS detection plus a liveness check." loading="lazy"></iframe></div>
+    <div class="caption">ATS detection plus a liveness check.</div>
+    <aside class="notes">Detecting an applicant-tracking system means the provider is present; liveness means the role is open today. Different facts, kept separate.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The evidence components · Chapter 9</div>
+    <h1 class="headline">Resolve the title to an occupation before you trust the pay.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/09-is-the-role-any-good-bls-onet-role-quality-fig-01.html" title="Title-to-occupation resolution: proposing is not confirming." loading="lazy"></iframe></div>
+    <div class="caption">Title-to-occupation resolution: proposing is not confirming.</div>
+    <aside class="notes">A messy title becomes a labor-market fact only after the model proposes a code and a check confirms it. Confirmed feeds the joined O*NET + OEWS row.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The evidence components · Chapter 10</div>
+    <h1 class="headline">The 90-day clock is a gate, not a vote.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/10-the-visa-timeline-manager-fig-03.html" title="Bar length is time to start; the lines decide survival." loading="lazy"></iframe></div>
+    <div class="caption">Bar length is time to start; the lines decide survival.</div>
+    <aside class="notes">An impossible visa timeline zeros a role no matter how good it looks. The engine budgets to eighty days — a deliberate margin against a cliff.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The evidence components · Chapter 11</div>
+    <h1 class="headline">Combine the evidence into one defensible Apply / Consider / Skip.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/11-the-bayesian-role-scorer-fig-03.html" title="Equal fit, different sponsorship, opposite regions." loading="lazy"></iframe></div>
+    <div class="caption">Equal fit, different sponsorship, opposite regions.</div>
+    <aside class="notes">Sponsorship, fit, liveness, and timeline compose into one sourced recommendation you can trace term by term.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The evidence components · Chapter 12</div>
+    <h1 class="headline">Strategic framing is permitted; misrepresentation is not.</h1>
+    <div class="body"><img src="../../images/12-the-opt-framing-generator-fig-02.png" alt="The bright line is absolute, not a gradient."></div>
+    <div class="caption">The bright line is absolute, not a gradient.</div>
+    <aside class="notes">Lead with the relevant true fact, order it strategically, calibrate the vocabulary. Never claim a status you do not hold. The tool lives on one side of the line.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">The evidence components · Chapter 13</div>
+    <h1 class="headline">Write for the filter and the human who reads after it.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/13-resumes-that-survive-the-filter-fig-01.html" title="Resumes that survive ATS parsing — and still read well." loading="lazy"></iframe></div>
+    <div class="caption">Resumes that survive ATS parsing — and still read well.</div>
+    <aside class="notes">The parser extracts name, title, dates, skills. Survive the filter without becoming keyword soup; the recipe checks both readers.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Operating the engine · Chapter 14</div>
+    <h1 class="headline">Run the recipes in order; every stage leaves provenance.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/14-skills-operating-the-engine-fig-03.html" title="scan → pipeline → oferta → verify → RUN_LOG." loading="lazy"></iframe></div>
+    <div class="caption">scan → pipeline → oferta → verify → RUN_LOG.</div>
+    <aside class="notes">The chain is only as trustworthy as its weakest provenance link. Each stage records what it found so the recommendation can be audited end to end.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Operating the engine · Chapter 15</div>
+    <h1 class="headline">A low skip rate means the filter is failing.</h1>
+    <div class="body"><img src="../../images/15-the-pipeline-tracker-and-the-skip-rate-fig-01.png" alt="Skip is a successful outcome."></div>
+    <div class="caption">Skip is a successful outcome.</div>
+    <aside class="notes">A healthy run skips at least half the roles it evaluates. Too low, and the engine has stopped talking you out of bad applications.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Operating the engine · Chapter 16</div>
+    <h1 class="headline">Assemble it, then make one honest, gated run.</h1>
+    <div class="body"><iframe class="fig" src="../../d3/16-the-build-and-the-honest-run-fig-01.html" title="The build and the honest run." loading="lazy"></iframe></div>
+    <div class="caption">The build and the honest run.</div>
+    <aside class="notes">Put the pieces together and do one real, gated pass on a real role. The point was never an impressive machine — it is a decision you can stand behind.</aside>
+  </section>
+  <section class="slide" data-type="synthesis">
+    <h1 class="headline">Run the script, read the audit, then decide.</h1>
+    <div class="body"><div id="spine-fig" style="width:100%;height:100%"></div></div>
+    <div class="caption">Machines verify conformance; humans verify adequacy.</div>
+    <aside class="notes">The one sentence to carry out: a confident output is not a correct one. The engine makes the groundable parts honest so your scarce judgment goes where it counts.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Start in ten minutes</div>
+    <h1 class="headline">Read the map, run it, trace one decision.</h1>
+    <div class="body">
+      <div style="font-family:var(--mono);font-size:clamp(13px,2cqi,20px);line-height:2;color:var(--color-ink)">
+        1 &nbsp; read <span class="accent">_MANIFEST.md</span> · SNICKERDOODLE.md · DOMAIN.md<br>
+        2 &nbsp; <span class="accent">npm run doctor</span> — what's runnable today<br>
+        3 &nbsp; <span class="accent">npm run score</span> data/examples/ch11-roles.json<br>
+        4 &nbsp; read the audit — trace one row, term by term<br>
+        5 &nbsp; open <span class="accent">Chapter 1 — The Fluency Trap</span>
+      </div>
+    </div>
+    <div class="caption">The fastest way to understand the argument is to watch the engine make one decision.</div>
+    <aside class="notes">Send them to the repo. Don't ask whether the engine looks impressive — ask what would have to be true for one of its decisions to be trusted. Then run the script and begin.</aside>
+  </section>
+  </main>
+
+<div id="next"><div class="mini"></div></div>
+<div id="bar"></div>
+<div id="counter"></div>
+<div id="timer" hidden>00:00</div>
+<div id="help"><div>
+  → / Space&nbsp; next &nbsp;·&nbsp; ← &nbsp; back &nbsp;·&nbsp; Home/End &nbsp; jump<br>
+  f &nbsp; fullscreen &nbsp;·&nbsp; s &nbsp; presenter view &nbsp;·&nbsp; o &nbsp; overview &nbsp;·&nbsp; ? &nbsp; this help
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let i = Math.max(0, (parseInt(location.hash.slice(1))||1) - 1);
+  const bar = document.getElementById('counter');
+  const prog = document.getElementById('bar');
+  const nextMini = document.querySelector('#next .mini');
+
+  function show(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach((s,k)=>s.classList.toggle('current', k===i));
+    bar.textContent = (i+1)+' / '+slides.length;
+    prog.style.width = ((i+1)/slides.length*100)+'%';
+    if(!document.body.classList.contains('study')) history.replaceState(null,'','#'+(i+1));
+    if(document.body.classList.contains('presenter')){
+      nextMini.innerHTML = slides[i+1] ? slides[i+1].innerHTML : '<em style="color:var(--color-secondary)">— end —</em>';
+    }
+  }
+  function go(d){ show(i+d); }
+
+  // presenter timer
+  let t0=null, timer=document.getElementById('timer');
+  setInterval(()=>{ if(t0){const s=Math.floor((Date.now()-t0)/1000);
+    timer.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}},500);
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(-1);}
+    else if(e.key==='Home'){show(0);} else if(e.key==='End'){show(slides.length-1);}
+    else if(e.key==='f'){ if(!document.fullscreenElement)document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+    else if(e.key==='s'){ document.body.classList.toggle('presenter'); if(!t0)t0=Date.now(); timer.hidden=!document.body.classList.contains('presenter'); show(i); }
+    else if(e.key==='o'){ document.body.classList.toggle('overview'); }
+    else if(e.key==='?'){ const h=document.getElementById('help'); h.style.display = h.style.display==='flex'?'none':'flex'; }
+    else if(e.key==='Escape'){ document.getElementById('help').style.display='none'; document.body.classList.remove('overview'); }
+  });
+  document.getElementById('deck').addEventListener('click',e=>{
+    if(document.body.classList.contains('overview')){ const s=e.target.closest('.slide'); if(s){show(slides.indexOf(s));document.body.classList.remove('overview');} }
+  });
+  document.querySelectorAll('.reveal>summary').forEach(su=>su.addEventListener('click',e=>{e.preventDefault();su.parentElement.classList.toggle('open');}));
+
+  // study mode shows everything; live/presenter start at slide i
+  if(!document.body.classList.contains('study')) show(i);
+
+
+  // ---- custom animated D3 figures (enter transitions) ----
+  function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+  (function(){const el=document.getElementById('claim-fig');if(!el)return;function draw(){el.innerHTML='';
+    const w=el.clientWidth||700,h=el.clientHeight||300;const svg=d3.select(el).append('svg').attr('width',w).attr('height',h)
+      .attr('role','img').attr('aria-label','Execution cost falls to near zero while judgment stays scarce and decisive');
+    const red=css('--color-red'),gray='#787878',sec=css('--color-secondary');
+    const bx=w*0.18, jx=w*0.62, base=h*0.82, maxh=h*0.6;
+    const bars=[{x:bx,label:'execution',from:maxh,to:maxh*0.12,fill:gray},{x:jx,label:'judgment',from:0,to:maxh,fill:red}];
+    svg.selectAll('rect').data(bars).join('rect').attr('x',d=>d.x).attr('width',w*0.2).attr('y',base).attr('height',0).attr('fill',d=>d.fill)
+      .transition().duration(700).delay((d,i)=>i*250).attr('y',d=>base-d.to).attr('height',d=>d.to);
+    svg.selectAll('text').data(bars).join('text').attr('x',d=>d.x+w*0.1).attr('y',base+22).attr('text-anchor','middle')
+      .attr('font-family',"var(--sans)").attr('font-size',14).attr('fill',sec).text(d=>d.label);
+  }draw();new ResizeObserver(draw).observe(el);})();
+  (function(){const el=document.getElementById('map-fig');if(!el)return;function draw(){el.innerHTML='';
+    const w=el.clientWidth||700,h=el.clientHeight||260;const svg=d3.select(el).append('svg').attr('width',w).attr('height',h)
+      .attr('role','img').attr('aria-label','Core method, evidence components, operating the engine');
+    const sec=css('--color-secondary'),ink=css('--color-ink'),red=css('--color-red'),bd=css('--color-border');
+    const items=[['The core method','Ch 1–5',0],['Evidence components','Ch 6–13',0],['Operating the engine','Ch 14–16',1]];
+    const bw=w*0.27,gap=(w-bw*3)/4,y=h*0.38,bh=h*0.26;
+    const g=svg.selectAll('g').data(items).join('g').attr('opacity',0)
+      .attr('transform',(d,i)=>`translate(${gap+i*(bw+gap)},${y})`);
+    g.append('rect').attr('width',bw).attr('height',bh).attr('fill',d=>d[2]?css('--color-white'):'#F5F5F5')
+      .attr('stroke',d=>d[2]?red:bd).attr('stroke-width',d=>d[2]?2:1);
+    g.append('text').attr('x',bw/2).attr('y',bh*0.45).attr('text-anchor','middle').attr('font-family',"var(--sans)").attr('font-size',14).attr('fill',ink).text(d=>d[0]);
+    g.append('text').attr('x',bw/2).attr('y',bh*0.75).attr('text-anchor','middle').attr('font-family',"var(--mono)").attr('font-size',11).attr('fill',sec).text(d=>d[1]);
+    g.transition().duration(500).delay((d,i)=>i*220).attr('opacity',1);
+  }draw();new ResizeObserver(draw).observe(el);})();
+  (function(){const el=document.getElementById('spine-fig');if(!el)return;function draw(){el.innerHTML='';
+    const w=el.clientWidth||700,h=el.clientHeight||180;const svg=d3.select(el).append('svg').attr('width',w).attr('height',h)
+      .attr('role','img').attr('aria-label','Machine records, audit provenance, human decision');
+    const sec=css('--color-secondary'),ink=css('--color-ink'),red=css('--color-red'),bd=css('--color-border');
+    const items=[['machine: records',0],['audit: provenance',0],['human: the decision',1]];
+    const bw=w*0.27,gap=(w-bw*3)/4,y=h*0.34,bh=h*0.34;
+    const g=svg.selectAll('g').data(items).join('g').attr('opacity',0).attr('transform',(d,i)=>`translate(${gap+i*(bw+gap)},${y})`);
+    g.append('rect').attr('width',bw).attr('height',bh).attr('fill',d=>d[1]?css('--color-white'):'#F5F5F5').attr('stroke',d=>d[1]?red:bd).attr('stroke-width',d=>d[1]?2:1);
+    g.append('text').attr('x',bw/2).attr('y',bh*0.6).attr('text-anchor','middle').attr('font-family',"var(--sans)").attr('font-size',13).attr('fill',ink).text(d=>d[0]);
+    g.transition().duration(500).delay((d,i)=>i*260).attr('opacity',1);
+  }draw();new ResizeObserver(draw).observe(el);})();
+
+</script>
+</body>
+</html>
