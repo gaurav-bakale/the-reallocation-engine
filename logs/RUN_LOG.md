@@ -160,3 +160,24 @@ private emails, or sensitive application notes.
 - **Result:** 8 gigs → Apply 2 · Maybe 2 · Skip 4 (**skip 50%**, healthy). Gates fire: "URGENT 12h" gated by time_fit (0.04), closed posting gated by liveness (0.02), flooded Next.js post demoted to Maybe. Output (private, gitignored): `data/upwork/gig-scores.{json,md}`.
 - **Conformance:** `node scripts/conformance.mjs` on all new files → 8/8 conform. Privacy: `git add --dry-run data/upwork/` stages only `.gitignore`, `README.md`, `gigs.sample.json`; derived evidence + scores correctly ignored.
 - **Open / not built:** live Upwork API pull (OAuth, ToS); real ai_fit via a Claude call (currently a labeled heuristic); time_fit effort model; weights/thresholds are v0 defaults; recipes DRAFT (no attestation); `DOMAIN.md` not yet rewritten (new domain doc added alongside instead). Not committed.
+
+## 2026-06-25 — Setup Exercise: personal `search/` layer (INFO 7375), freelance-framed
+
+> SKELETON — fill the [FILL] items yourself; they are the graded judgment (do NOT let the
+> agent fill them). No content from `search/private-notes.md` goes in this log.
+
+- **Why:** INFO 7375 setup exercise — build the personal-data layer that makes the engine *mine*. Framed around the AI-doable freelance-gig mode (professor-approved domain).
+- **Built (agent extract/draft/format):** `search/resume.json` (structured record from my real résumé data, sanitized — no phone/address), `search/profile.yml` (freelance-framed: target categories web/database/data-ml, visa `no constraint`, sponsorship `non-issue`, real gates = liveness + time_fit), `search/gaps.md` (5 evidence-backed gaps), `search/private-notes.md` (gitignored). Guard reconciled so `search/resume.json` is committable (`.gitignore` re-include + `doctor.mjs` `search/` exemption); `private/` + root protections unchanged.
+- **Attestation pass — 3 errors I caught in `resume.json`:**
+  1. [FILL — e.g. "metric '~70% reporting reduction' had no record behind it (P3) → removed/qualified"]
+  2. [FILL — e.g. "dates were year-only; corrected Senior SWE to 2020-06–2022-04"]
+  3. [FILL — e.g. "removed 'RLHF'/'Computer Vision' — listed but not demonstrable in interview"]
+- **Top gap (from `gaps.md`):** [FILL — which of the 5 matters most and why].
+- **Killed row + why:** [FILL — row # deleted and the one-sentence *reason* it didn't apply].
+- **`profile.yml` field I corrected from the agent's draft:** [FILL — e.g. "set `budget_floor_usd` 250→___ and `weekly_availability_hours` 10→___; the draft guessed"].
+- **Verification check (Step 4 — answer honestly):**
+  - *resume.json:* [FILL — is every entry traceable to something verifiable, or did the agent promote a title / extend a date / add an undefendable skill?]
+  - *profile.yml:* [FILL — does the visa/sponsorship section reflect reality? STEM eligibility marked uncertain (not DSO-confirmed)?]
+  - *gaps.md:* [FILL — does every gap's evidence cite something real (a posting, the scorer code, a pattern), or did the agent invent a demand signal?]
+- **Conformance:** `node scripts/conformance.mjs search/resume.json search/profile.yml` → 2/2 conform. `npm run doctor` privacy ✓ (resume.json committable via `search/` carve-out; `private-notes.md` ignored).
+- **Submission:** push fork to GitHub + Canvas link (pending). AI Use Disclosure: `AI-USE-DISCLOSURE.md`.

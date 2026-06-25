@@ -1,0 +1,119 @@
+{
+  "attestation": {
+    "attested": false,
+    "attested_date": null,
+    "attestation_note": "PENDING — agent-extracted draft. Run the Step-1 attestation pass: find >= 3 things this extraction got wrong or that you could not defend in an interview (a shifted/imprecise date, a title generalized upward, a skill listed but not demonstrable, a metric no record backs), correct them, then set attested:true with a one-line note naming the three corrections."
+  },
+  "person": {
+    "name": "Gaurav Bakale",
+    "location": "Boston, MA",
+    "work_authorization": "F-1 OPT (authorized to work in the US now; will need employer sponsorship, e.g. H-1B, after OPT)",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/gaurav-bakale-846ba8184/"
+    },
+    "_sanitization_note": "Phone, street address, and personal email intentionally omitted — this file is committed to a public fork. Add a contact email here only if you want it public."
+  },
+  "summary": {
+    "text": "Engineer with ~6 years across software, data, and ML engineering, including ~2 years in a Lead role on an AI-powered data platform. Completing an M.S. in Software Engineering (AI specialization) at Northeastern University (expected Aug 2026); recent co-op building agentic LLM platforms with CrewAI, LangChain, and TypeScript/Node.js.",
+    "_verify": "Confirm the '~6 years' and '~2 years leading' claims against your actual title dates below before attesting."
+  },
+  "experience": [
+    {
+      "title": "AI Engineer (Co-op)",
+      "company": "Impact Analytics",
+      "location": "Dallas, TX",
+      "start": "2025-05",
+      "end": "2025-12",
+      "highlights": [
+        "Built a modular multi-agent orchestration platform using CrewAI, LangChain, and LlamaIndex — configurable AI-agent deployment with tool-calling, memory modules, and RAG pipelines.",
+        "Developed RESTful microservices in TypeScript and Node.js exposing agent workflows as scalable APIs, with PostgreSQL-backed state management and event-driven task queuing.",
+        "Built an LLM-powered natural-language query engine over PostgreSQL and Snowflake, auto-generating governance and operational reports (claimed ~70% reduction in manual reporting effort — verify before attesting).",
+        "Containerised agent services with Docker, deployed on GCP with CI/CD and structured logging (claimed sub-500ms API response in production — verify)."
+      ]
+    },
+    {
+      "title": "Lead Software Engineer",
+      "company": "Impact Analytics",
+      "location": "Bengaluru, India",
+      "start": "2022",
+      "end": "2024",
+      "highlights": [
+        "Led architecture and delivery of a data-platform application (user-access management, ETL configuration, time reporting, real-time notifications) serving 500+ enterprise users.",
+        "Migrated Airflow from VMs to GKE with horizontal auto-scaling (claimed ~35% infra-cost reduction; deployment time hours -> minutes — verify).",
+        "Led development of LSTM and Transformer-based demand-forecasting and promotion-optimisation models across multi-store retail networks.",
+        "Built a POC benchmarking BigQuery vs. Snowflake (ingestion throughput, query latency, TCO); recommendation adopted org-wide."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Impact Analytics",
+      "location": "Bengaluru, India",
+      "start": "2020",
+      "end": "2022",
+      "highlights": [
+        "Built Apache Beam / Dataflow pipelines ingesting multi-terabyte datasets from SQL and SFTP sources into cloud warehouses with fault-tolerant exactly-once semantics.",
+        "Designed a REST pattern for long-running async tasks backed by Google Cloud Tasks with webhook completion, eliminating timeout failures for complex ETL jobs."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Impact Analytics",
+      "location": "Bengaluru, India",
+      "start": "2019",
+      "end": "2020",
+      "highlights": [
+        "Identified customer segments and optimised coupon strategies via an exponential-decay model across multi-store retail networks (claimed ~$2M annualised margin impact — verify).",
+        "Created a GLM-based model estimating price/promotion elasticities incorporating product affinity, cannibalisation, store-traffic forecasts, and competitor pricing."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "GuitarZero — Real-Time Guitar Trainer",
+      "type": "Personal Project",
+      "url": "https://guitarzero.vercel.app/",
+      "dates": "2026",
+      "highlights": [
+        "Built and deployed a real-time guitar trainer powered by a lightweight in-browser neural network that detects played notes from live audio; live in production (claim of 'real users' — verify/quantify)."
+      ]
+    },
+    {
+      "name": "PulseFrame — Autonomous AI News-Art Bot",
+      "type": "Personal Project",
+      "dates": "2025-2026",
+      "highlights": [
+        "Autonomous daily pipeline: a local LLM (Ollama) summarises trending news, generates a Stable Diffusion prompt, and auto-posts artwork to Instagram via the Graph API — orchestrated as a LangChain multi-agent workflow with failure recovery and Slack alerting."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "M.S. Software Engineering Systems (AI Specialization)",
+      "institution": "Northeastern University",
+      "location": "Boston, MA",
+      "dates": "Expected Aug 2026",
+      "details": [
+        "GPA 3.6/4.0",
+        "Teaching Assistant, DAMG6210 Data Management & Database Design"
+      ]
+    },
+    {
+      "degree": "B.E. Electronics & Communication Engineering",
+      "institution": "Ramaiah Institute of Technology",
+      "location": "Bengaluru, India",
+      "dates": "2019",
+      "details": [
+        "GPA 8.29/10",
+        "Coursework: Neural Networks & Deep Learning, Linear Algebra, Algorithms (Stanford Online)"
+      ]
+    }
+  ],
+  "skills": {
+    "_verify": "These are claimed across all years. For the attestation pass, flag any you could NOT walk through in a technical interview (likely-inferred candidates: RLHF, Computer Vision, Multimodal AI) and either move them to gaps.md or remove them.",
+    "languages": ["Python", "TypeScript", "JavaScript", "Node.js", "SQL", "Java", "R", "C/C++"],
+    "ai_agent_frameworks": ["LangChain", "CrewAI", "LlamaIndex", "LangGraph", "Ollama", "OpenAI API", "Stable Diffusion", "RAG pipelines", "MCP"],
+    "backend_and_data": ["REST APIs", "PostgreSQL", "Supabase", "Snowflake", "BigQuery", "Apache Beam", "Airflow", "Cloud Tasks", "ETL", "event-driven architecture"],
+    "infrastructure_devops": ["Docker", "Kubernetes (GKE)", "GCP", "CI/CD", "Git", "monitoring & observability"],
+    "machine_learning": ["Generative AI", "LLMs", "Transformers", "Prompt Engineering", "Fine-tuning (LoRA, RLHF)", "Diffusion Models", "Multimodal AI", "Deep Learning (CNNs, RNNs, LSTM)", "NLP", "Computer Vision", "Embeddings & Vector Search", "MLOps"]
+  }
+}
