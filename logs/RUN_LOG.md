@@ -150,3 +150,13 @@ private emails, or sensitive application notes.
 - **Rebuilt:** `node scripts/build-instructions.mjs --promote` → `AGENTS.md` + `CLAUDE.md` regenerated; `CLAUDE.md` now imports `@SNICKERDOODLE.md`.
 - **Untouched:** `data/` CSVs (real company names containing "mycroft") and prior RUN_LOG history (append-only).
 - **Result:** conformance + doctor green; no stale `MYCROFT.md` outside data/history.
+
+## 2026-06-25 — New domain on branch `freelance-gigs`: AI-doable gig finder (Upwork), first sample run
+
+- **Why:** adapt the engine to find freelance gigs the user can finish with Claude (demo pages, interactive PPTs, websites, DB schemas…), Upwork first. Snickerdoodle constitution kept; only the domain swapped.
+- **Branch:** `freelance-gigs` (off `main`).
+- **Added:** `UPWORK-DOMAIN.md`; `data/upwork/` (`.gitignore` private-by-default + `README.md` + synthetic `gigs.sample.json`, 8 gigs); `scripts/upwork/ingest.mjs` (discovery + evidence derivation, labeled record/model-judgment/your-input; live Upwork API = marked `TODO[live]`); `scripts/score/gig-scorer.mjs` (adapted from Ch.11 `role-scorer.mjs` — votes ai_fit·0.45 + pay·0.30 + client_trust·0.25 × liveness × time_fit → Apply/Maybe/Skip + audit); `recipes/gig-scan.md` + `recipes/gig-score.md` (DRAFT); `package.json` gains `gig:ingest`, `gig:score`.
+- **Command:** `npm run gig:ingest -- --sample` then `npm run gig:score -- data/upwork/gigs.sample.evidence.json` (stored scripts; sample mode; zero credentials; zero Claude tokens).
+- **Result:** 8 gigs → Apply 2 · Maybe 2 · Skip 4 (**skip 50%**, healthy). Gates fire: "URGENT 12h" gated by time_fit (0.04), closed posting gated by liveness (0.02), flooded Next.js post demoted to Maybe. Output (private, gitignored): `data/upwork/gig-scores.{json,md}`.
+- **Conformance:** `node scripts/conformance.mjs` on all new files → 8/8 conform. Privacy: `git add --dry-run data/upwork/` stages only `.gitignore`, `README.md`, `gigs.sample.json`; derived evidence + scores correctly ignored.
+- **Open / not built:** live Upwork API pull (OAuth, ToS); real ai_fit via a Claude call (currently a labeled heuristic); time_fit effort model; weights/thresholds are v0 defaults; recipes DRAFT (no attestation); `DOMAIN.md` not yet rewritten (new domain doc added alongside instead). Not committed.
