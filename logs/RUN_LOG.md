@@ -174,7 +174,7 @@ private emails, or sensitive application notes.
   3. Softened "GuitarZero used by real users" → "publicly deployed at guitarzero.vercel.app" — the usage claim wasn't verifiable.
 - **Top gap (from `gaps.md`):** Row 1 — **no visible freelance footprint** (no reviews / Job Success Score). It's the binding constraint on winning gigs (the scorer weights `client_trust`; real senior-independent postings expect a track record), not my engineering ability.
 - **Killed row + why:** Deleted the "free-board data-ml demand is labeling, not senior LLM builds" row — it's *channel selection* (where I look for gigs), not a gap in my own evidence.
-- **`profile.yml` field corrected:** `weekly_availability_hours` (10) and `budget_floor_usd` (250) carried as CONFIRM placeholders — set/adjust to my real numbers before final submit.
+- **`profile.yml` field corrected:** corrected the draft's `budget_floor_usd` placeholder 250 → **200**, and confirmed `weekly_availability_hours` at **10** (my real freelance bandwidth as a full-time student).
 - **Verification check (Step 4):**
   - *resume.json:* Entries trace to my structured résumé; I removed three over-stated/undefendable items. Remaining %/$ metrics (70%, ~$2M, 35%) are my own prior-résumé claims I can source in an interview — not agent inventions.
   - *profile.yml:* Visa stated "no constraint" for the freelance mode (visa doesn't gate freelance triage), with an explicit note that F-1 self-employment has real rules to confirm with my DSO; STEM eligibility marked "uncertain" (not DSO-confirmed); sponsorship "non-issue."

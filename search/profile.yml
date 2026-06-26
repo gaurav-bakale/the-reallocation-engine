@@ -54,6 +54,6 @@ gates:
   # client_trust is a weighted vote (0.25), not a hard gate; unverified clients are heavily discounted.
 
 # Economics + capacity (feed the pay vote and time_fit)
-budget_floor_usd: 250            # CONFIRM — won't bid below this fixed price (or < $40/hr hourly)
-weekly_availability_hours: 10    # CONFIRM — full-time MS student + job-searching; limited freelance bandwidth
+budget_floor_usd: 200            # set by me — won't bid below this fixed price (or < $40/hr hourly)
+weekly_availability_hours: 10    # set by me — full-time MS student + job-searching; limited freelance bandwidth
 turnaround: "no same-day; prefer >= 3-day deadlines"
