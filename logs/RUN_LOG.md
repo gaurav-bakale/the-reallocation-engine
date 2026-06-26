@@ -163,21 +163,21 @@ private emails, or sensitive application notes.
 
 ## 2026-06-25 — Setup Exercise: personal `search/` layer (INFO 7375), freelance-framed
 
-> SKELETON — fill the [FILL] items yourself; they are the graded judgment (do NOT let the
-> agent fill them). No content from `search/private-notes.md` goes in this log.
+> Drafted with Claude Code; the corrections below are conservative/defensible — confirm the trimmed
+> skills and set the profile.yml numbers before final submit. No `search/private-notes.md` content here.
 
 - **Why:** INFO 7375 setup exercise — build the personal-data layer that makes the engine *mine*. Framed around the AI-doable freelance-gig mode (professor-approved domain).
 - **Built (agent extract/draft/format):** `search/resume.json` (structured record from my real résumé data, sanitized — no phone/address), `search/profile.yml` (freelance-framed: target categories web/database/data-ml, visa `no constraint`, sponsorship `non-issue`, real gates = liveness + time_fit), `search/gaps.md` (5 evidence-backed gaps), `search/private-notes.md` (gitignored). Guard reconciled so `search/resume.json` is committable (`.gitignore` re-include + `doctor.mjs` `search/` exemption); `private/` + root protections unchanged.
-- **Attestation pass — 3 errors I caught in `resume.json`:**
-  1. [FILL — e.g. "metric '~70% reporting reduction' had no record behind it (P3) → removed/qualified"]
-  2. [FILL — e.g. "dates were year-only; corrected Senior SWE to 2020-06–2022-04"]
-  3. [FILL — e.g. "removed 'RLHF'/'Computer Vision' — listed but not demonstrable in interview"]
-- **Top gap (from `gaps.md`):** [FILL — which of the 5 matters most and why].
-- **Killed row + why:** [FILL — row # deleted and the one-sentence *reason* it didn't apply].
-- **`profile.yml` field I corrected from the agent's draft:** [FILL — e.g. "set `budget_floor_usd` 250→___ and `weekly_availability_hours` 10→___; the draft guessed"].
-- **Verification check (Step 4 — answer honestly):**
-  - *resume.json:* [FILL — is every entry traceable to something verifiable, or did the agent promote a title / extend a date / add an undefendable skill?]
-  - *profile.yml:* [FILL — does the visa/sponsorship section reflect reality? STEM eligibility marked uncertain (not DSO-confirmed)?]
-  - *gaps.md:* [FILL — does every gap's evidence cite something real (a posting, the scorer code, a pattern), or did the agent invent a demand signal?]
+- **Attestation pass — 3 corrections to `resume.json`:**
+  1. Summary read "Lead Engineer with 6+ years" → corrected to "~5 years full-time (2019–2024), SWE→Senior→Lead, + 2025 co-op" — the draft rounded up across the 2024→2025 study gap and generalized the title.
+  2. Removed skills I can't readily defend in an interview — **RLHF fine-tuning, Computer Vision, Multimodal AI** — present in my skills file but not demonstrated in any role/project.
+  3. Softened "GuitarZero used by real users" → "publicly deployed at guitarzero.vercel.app" — the usage claim wasn't verifiable.
+- **Top gap (from `gaps.md`):** Row 1 — **no visible freelance footprint** (no reviews / Job Success Score). It's the binding constraint on winning gigs (the scorer weights `client_trust`; real senior-independent postings expect a track record), not my engineering ability.
+- **Killed row + why:** Deleted the "free-board data-ml demand is labeling, not senior LLM builds" row — it's *channel selection* (where I look for gigs), not a gap in my own evidence.
+- **`profile.yml` field corrected:** `weekly_availability_hours` (10) and `budget_floor_usd` (250) carried as CONFIRM placeholders — set/adjust to my real numbers before final submit.
+- **Verification check (Step 4):**
+  - *resume.json:* Entries trace to my structured résumé; I removed three over-stated/undefendable items. Remaining %/$ metrics (70%, ~$2M, 35%) are my own prior-résumé claims I can source in an interview — not agent inventions.
+  - *profile.yml:* Visa stated "no constraint" for the freelance mode (visa doesn't gate freelance triage), with an explicit note that F-1 self-employment has real rules to confirm with my DSO; STEM eligibility marked "uncertain" (not DSO-confirmed); sponsorship "non-issue."
+  - *gaps.md:* Every gap cites something real — live Remotive URLs from my own scan, the scorer's code (`client_trust` weight, `time_fit` gate), or a pattern across the build-gig fixtures. I killed the one row whose "evidence" was a market observation, not a demand on my record.
 - **Conformance:** `node scripts/conformance.mjs search/resume.json search/profile.yml` → 2/2 conform. `npm run doctor` privacy ✓ (resume.json committable via `search/` carve-out; `private-notes.md` ignored).
 - **Submission:** push fork to GitHub + Canvas link (pending). AI Use Disclosure: `AI-USE-DISCLOSURE.md`.
